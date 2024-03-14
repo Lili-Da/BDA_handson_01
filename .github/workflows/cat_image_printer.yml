@@ -19,7 +19,7 @@ jobs:
     - name: Install jp2a
       run: sudo apt-get install jp2a
 
-    - name: Fetch Cat Image and Print as ASCII
+    - name: Fetch Cat Image and Print as ASCII Art
       run: |
         export TERM=xterm-256color
         # Fetch a cat image URL from the Cat API
