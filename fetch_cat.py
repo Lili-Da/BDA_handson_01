@@ -14,6 +14,7 @@ import subprocess
 
 def install(name):
     subprocess.call([sys.executable, '-m', 'pip', 'install', name])
+    print(f"{name} has been installed sucessfully!")
 
 install(numpy)
 install(opencv-python)
