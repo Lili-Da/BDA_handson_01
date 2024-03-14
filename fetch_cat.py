@@ -12,6 +12,7 @@
 import requests
 import os
 import cv2
+import numpy as np
 
 api_key = os.environ.get('CATS_API_KEY')
 response = requests.get("https://api.thecatapi.com/v1/images/search", headers={"x-api-key": api_key})
