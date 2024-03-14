@@ -11,6 +11,7 @@
 # print(cat_image_url)
 
 import subprocess
+import sys
 
 def install(name):
     subprocess.call([sys.executable, '-m', 'pip', 'install', name])
@@ -24,7 +25,7 @@ import requests
 import os
 import cv2
 import numpy as np
-import sys
+
 
 api_key = os.environ.get('CATS_API_KEY')
 response = requests.get("https://api.thecatapi.com/v1/images/search", headers={"x-api-key": api_key})
