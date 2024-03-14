@@ -1,0 +1,24 @@
+name: Cat Image Validation
+
+on:
+  push:
+    branches:
+      - feature-cat-image-validation
+
+jobs:
+  validate-cat-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: |
+        pip install requests opencv-python
+    - name: Fetch and Validate Cat Image
+      run: python fetch_cat.py
+      env:
+        CATS_API_KEY: ${{ secrets.CATS_API_KEY }}
