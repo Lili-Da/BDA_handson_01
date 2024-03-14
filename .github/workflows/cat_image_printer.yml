@@ -1,0 +1,30 @@
+name: Print Cat Image as ASCII Art
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    # Runs every minute, replace or adjust the cron schedule according to your needs
+    - cron: '*/1 * * * *'
+
+jobs:
+  print-cat-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install jp2a
+      run: sudo apt-get install jp2a
+
+    - name: Fetch Cat Image and Print as ASCII Art
+      run: |
+        # Fetch a cat image URL (replace with your method of obtaining a cat image URL)
+        IMAGE_URL=$(curl -s "https://api.thecatapi.com/v1/images/search" | jq -r '.[0].url')
+        
+        # Download the image and convert to ASCII art
+        curl -s $IMAGE_URL | jp2a - --colors
+      env:
+        CATS_API_KEY: ${{ secrets.CATS_API_KEY }}
