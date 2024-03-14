@@ -42,7 +42,9 @@ def check_for_cat(image_url):
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
     # Load the pre-trained cat cascade classifier
-    cat_cascade = cv2.CascadeClassifier('path/to/cat_cascade.xml')
+    # cat_cascade = cv2.CascadeClassifier('path/to/cat_cascade.xml')
+    cat_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalcatface.xml')
+
 
     # Convert the image to grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -62,3 +64,5 @@ if has_cat:
     print("The image contains a cat!")
 else:
     print("The image does not contain a cat.")
+
+    
