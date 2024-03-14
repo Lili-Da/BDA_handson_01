@@ -1,11 +1,11 @@
-name: Print Cat Image as ASCII Art
+name: Print Cat Image as ASCII
 
 on:
   push:
     branches:
       - master
   schedule:
-    # Runs every minute, replace or adjust the cron schedule according to your needs
+    # Runs every minute
     - cron: '*/1 * * * *'
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     - name: Install jp2a
       run: sudo apt-get install jp2a
 
-    - name: Fetch Cat Image and Print as ASCII Art
+    - name: Fetch Cat Image and Print as ASCII
       run: |
         export TERM=xterm-256color
         # Fetch a cat image URL from the Cat API
