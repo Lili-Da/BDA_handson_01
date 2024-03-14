@@ -7,8 +7,8 @@ on:
   schedule:
     # Runs every minute, replace or adjust the cron schedule according to your needs
     - cron: '*/1 * * * *'
-    
-  jobs:
+
+jobs:
   print-cat-image:
     runs-on: ubuntu-latest
 
