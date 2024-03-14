@@ -9,9 +9,15 @@
 # cat_image_url = fetch_cat_image()
 # print("Here's a random cat image:")
 # print(cat_image_url)
-!pip install numpy
 
-!pip install opencv-python
+import subprocess
+
+def install(name):
+    subprocess.call([sys.executable, '-m', 'pip', 'install', name])
+
+install(numpy)
+install(opencv-python)
+#install(requests)
 
 import requests
 import os
