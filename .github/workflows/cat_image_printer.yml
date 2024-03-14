@@ -21,6 +21,7 @@ jobs:
 
     - name: Fetch Cat Image and Print as ASCII Art
       run: |
+        export TERM=xterm-256color
         # Fetch a cat image URL (replace with your method of obtaining a cat image URL)
         IMAGE_URL=$(curl -s "https://api.thecatapi.com/v1/images/search" | jq -r '.[0].url')
         
@@ -28,3 +29,4 @@ jobs:
         curl -s $IMAGE_URL | jp2a - --colors
       env:
         CATS_API_KEY: ${{ secrets.CATS_API_KEY }}
+
